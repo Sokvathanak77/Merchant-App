@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "929002031578",
+    "project_id": "merchant-93202",
+    "storage_bucket": "merchant-93202.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929002031578:android:3f9762de58b94feb7b98e3",
+        "android_client_info": {
+          "package_name": "com.sptech.merchant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929002031578-t0c669vl5jv71e876f8534ped8id87a0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sptech.merchant",
+            "certificate_hash": "81f47c680959f6b4067b064f41b76e78494548c2"
+          }
+        },
+        {
+          "client_id": "929002031578-1qqaoqc8qnvjchqd385gngrfd4q1fliu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC_8oBrfNfQwcZqxEHTTuX0HY_exKJ_RU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929002031578-1qqaoqc8qnvjchqd385gngrfd4q1fliu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
