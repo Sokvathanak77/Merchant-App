@@ -132,7 +132,7 @@ class AuthenticationRepository extends GetxController {
 
       // Create a credential from the access token
       final AccessToken accessToken = loginResult.accessToken!;
-      final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(accessToken.token);
+      final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(accessToken.tokenString);
 
       // Once signed in, return the UserCredential
       return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);

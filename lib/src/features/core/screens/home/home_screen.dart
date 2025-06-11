@@ -30,27 +30,24 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-  
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-  CartController cartController = Get.find<CartController>();
-  ApiCartController apiCartController = Get.find();
-  LoginController loginController = Get.put(LoginController());
-  ProductController productController = Get.find();
-  
-  
-class _HomeScreenState extends State<HomeScreen> {
+CartController cartController = Get.find<CartController>();
+ApiCartController apiCartController = Get.find();
+LoginController loginController = Get.put(LoginController());
+ProductController productController = Get.find();
 
+class _HomeScreenState extends State<HomeScreen> {
   // @override
-  // void initState() { 
+  // void initState() {
   //   super.initState();
   //   apiCartController.getCartData();
   //   productController.getUserProfile();
   // }
-  
+
   int _selectedIndex = 0;
   //late PersistentTabController _controller;
   List<Widget> pages = [
@@ -61,30 +58,31 @@ class _HomeScreenState extends State<HomeScreen> {
     AccountScreen(),
   ];
 
-  
-
   void onTapNav(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
   // launch function
   void launchlink(String link) async {
-  if (await canLaunch(link)) {
-    await launch(link);
-  } else {
-    throw 'Could not launch $link';
+    if (await canLaunch(link)) {
+      await launch(link);
+    } else {
+      throw 'Could not launch $link';
+    }
   }
-}
-  
+
   @override
   Widget build(BuildContext context) {
-    var brightness = SchedulerBinding.instance.platformDispatcher.platformBrightness;
+    var brightness =
+        SchedulerBinding.instance.platformDispatcher.platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
       drawerEnableOpenDragGesture: true,
       appBar: AppBar(
-        backgroundColor: isDarkMode?Theme.of(context).scaffoldBackgroundColor:tDarkColor,
+        backgroundColor:
+            isDarkMode ? Theme.of(context).scaffoldBackgroundColor : tDarkColor,
         iconTheme: const IconThemeData(color: tWhiteColor),
         title: Text(
           tAppName,
@@ -102,7 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             topLeft: Radius.circular(Dimensions.radius16),
                             topRight: Radius.circular(Dimensions.radius16)),
                         child: Container(
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
+                          decoration:
+                              const BoxDecoration(shape: BoxShape.circle),
                           child: ListView(
                             children: [
                               ListTile(
@@ -114,45 +113,103 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },
                                 // textColor: tDarkColor,
                                 // iconColor: tDarkColor,
-                                title: Text("087559911",
+                                title: Text(
+                                  "087559911",
                                   style: TextStyle(
-                                    color: isDarkMode == true ? tWhiteColor : tDarkColor,
-                                    fontSize: Dimensions.font16
-                                  ),
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : tDarkColor,
+                                      fontSize: Dimensions.font16),
                                   textScaleFactor: 1,
                                 ),
-                                subtitle: Text("Call our care center now",style: TextStyle(color: isDarkMode==true?tWhiteColor: Colors.blueGrey,fontSize: Dimensions.font14),
-                                textScaleFactor: 1,
+                                subtitle: Text(
+                                  "Call our care center now",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : Colors.blueGrey,
+                                      fontSize: Dimensions.font14),
+                                  textScaleFactor: 1,
                                 ),
-                                leading: Icon(Icons.phone,color: isDarkMode == true ? tWhiteColor : tDarkColor,size: Dimensions.iconsize24,),
+                                leading: Icon(
+                                  Icons.phone,
+                                  color: isDarkMode == true
+                                      ? tWhiteColor
+                                      : tDarkColor,
+                                  size: Dimensions.iconsize24,
+                                ),
                               ),
                               Divider(indent: Dimensions.width70),
                               ListTile(
                                 onTap: () {
-                                  UrlLauncher.launch("https://telegram.me/087559911",
+                                  UrlLauncher.launch(
+                                      "https://telegram.me/087559911",
                                       forceWebView: false,
                                       forceSafariVC: false,
                                       enableJavaScript: false);
                                 },
-                                title: Text("087559911",style: TextStyle(color: isDarkMode == true ? tWhiteColor : tDarkColor,fontSize: Dimensions.font16),textScaleFactor: 1,),
-                                subtitle: Text("Telegram our care center now",style: TextStyle(color: isDarkMode == true ? tWhiteColor : Colors.blueGrey,fontSize: Dimensions.font14),textScaleFactor: 1,),
-                                leading: Icon(Icons.telegram_outlined,color: isDarkMode == true ? tWhiteColor : tDarkColor,size: Dimensions.iconsize24,),
-
+                                title: Text(
+                                  "087559911",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : tDarkColor,
+                                      fontSize: Dimensions.font16),
+                                  textScaleFactor: 1,
+                                ),
+                                subtitle: Text(
+                                  "Telegram our care center now",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : Colors.blueGrey,
+                                      fontSize: Dimensions.font14),
+                                  textScaleFactor: 1,
+                                ),
+                                leading: Icon(
+                                  Icons.telegram_outlined,
+                                  color: isDarkMode == true
+                                      ? tWhiteColor
+                                      : tDarkColor,
+                                  size: Dimensions.iconsize24,
+                                ),
                               ),
-                              Divider(indent: Dimensions.width10*7),
+                              Divider(indent: Dimensions.width10 * 7),
                               ListTile(
                                 onTap: () {
-                                  UrlLauncher.launch("https://telegram.me/087559911",
+                                  UrlLauncher.launch(
+                                      "https://telegram.me/087559911",
                                       forceWebView: false,
                                       forceSafariVC: false,
                                       enableJavaScript: false);
                                 },
-                                title: Text("Messenger",style: TextStyle(color: isDarkMode == true ? tWhiteColor : tDarkColor,fontSize: Dimensions.font16),textScaleFactor: 1,),
-                                subtitle: Text("Messenger our care center now",style: TextStyle(color: isDarkMode == true ? tWhiteColor : Colors.blueGrey,fontSize: Dimensions.font14),textScaleFactor: 1,),
-                                leading: Icon(Icons.messenger_outline,color:isDarkMode == true ? tWhiteColor : tDarkColor,size: Dimensions.iconsize24,),
-
+                                title: Text(
+                                  "Messenger",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : tDarkColor,
+                                      fontSize: Dimensions.font16),
+                                  textScaleFactor: 1,
+                                ),
+                                subtitle: Text(
+                                  "Messenger our care center now",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : Colors.blueGrey,
+                                      fontSize: Dimensions.font14),
+                                  textScaleFactor: 1,
+                                ),
+                                leading: Icon(
+                                  Icons.messenger_outline,
+                                  color: isDarkMode == true
+                                      ? tWhiteColor
+                                      : tDarkColor,
+                                  size: Dimensions.iconsize24,
+                                ),
                               ),
-                              Divider(indent: Dimensions.width10*7),
+                              Divider(indent: Dimensions.width10 * 7),
                               ListTile(
                                 onTap: () {
                                   UrlLauncher.launch("https://wa.me/087559911",
@@ -160,14 +217,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                       forceSafariVC: false,
                                       enableJavaScript: false);
                                 },
-                                title: Text("WhatsApp",style: TextStyle(color: isDarkMode == true ? tWhiteColor : tDarkColor,fontSize: Dimensions.font16),textScaleFactor: 1,),
-                                subtitle: Text("WhatsApp our care center now",style: TextStyle(color: isDarkMode == true ? tWhiteColor : Colors.blueGrey,fontSize: Dimensions.font14),textScaleFactor: 1,),
-                                leading: Icon(Icons.message,color: isDarkMode == true ? tWhiteColor : tDarkColor,size: Dimensions.iconsize24,),
-
+                                title: Text(
+                                  "WhatsApp",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : tDarkColor,
+                                      fontSize: Dimensions.font16),
+                                  textScaleFactor: 1,
+                                ),
+                                subtitle: Text(
+                                  "WhatsApp our care center now",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : Colors.blueGrey,
+                                      fontSize: Dimensions.font14),
+                                  textScaleFactor: 1,
+                                ),
+                                leading: Icon(
+                                  Icons.message,
+                                  color: isDarkMode == true
+                                      ? tWhiteColor
+                                      : tDarkColor,
+                                  size: Dimensions.iconsize24,
+                                ),
                               ),
-                              Divider(indent: Dimensions.width10*7),
+                              Divider(indent: Dimensions.width10 * 7),
                               ListTile(
-                                onTap: ()async {
+                                onTap: () async {
                                   const String lat = "42.3540";
                                   const String lng = "71.0586";
                                   const String mapUrl = "geo:$lat,$lng";
@@ -177,10 +255,31 @@ class _HomeScreenState extends State<HomeScreen> {
                                     throw "Couldn't launch Map";
                                   }
                                 },
-                                title: Text("Map",style: TextStyle(color: isDarkMode == true ? tWhiteColor : tDarkColor,fontSize: Dimensions.font16),textScaleFactor: 1,),
-                                subtitle: Text("Come to our Shop",style: TextStyle(color: isDarkMode == true ? tWhiteColor : Colors.blueGrey,fontSize: Dimensions.font14),textScaleFactor: 1,),
-                                leading: Icon(Icons.pin_drop_outlined,color: isDarkMode == true ? tWhiteColor : tDarkColor,size: Dimensions.iconsize24,),
-
+                                title: Text(
+                                  "Map",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : tDarkColor,
+                                      fontSize: Dimensions.font16),
+                                  textScaleFactor: 1,
+                                ),
+                                subtitle: Text(
+                                  "Come to our Shop",
+                                  style: TextStyle(
+                                      color: isDarkMode == true
+                                          ? tWhiteColor
+                                          : Colors.blueGrey,
+                                      fontSize: Dimensions.font14),
+                                  textScaleFactor: 1,
+                                ),
+                                leading: Icon(
+                                  Icons.pin_drop_outlined,
+                                  color: isDarkMode == true
+                                      ? tWhiteColor
+                                      : tDarkColor,
+                                  size: Dimensions.iconsize24,
+                                ),
                               ),
                             ],
                           ),
@@ -188,55 +287,63 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     });
               },
-              icon: Icon(Icons.phone_in_talk_outlined,color: tWhiteColor,size: Dimensions.iconsize18,)),
-            GetBuilder<ApiCartController>(builder: (apiCartController) => 
-              GestureDetector(
-                onTap: () => apiCartController.amountqty!.value>0
-                ?
-                Get.toNamed(RouteHelper.goToCart())
-                :
-                () => null,
-                child: Stack(
-                  children: [
-                    Container(
-                      width: Dimensions.width25+20,
-                      height: Dimensions.height10*6,
-                      child: Icon(Icons.shopping_cart,size: Dimensions.iconsize18,color: tWhiteColor,),
+              icon: Icon(
+                Icons.phone_in_talk_outlined,
+                color: tWhiteColor,
+                size: Dimensions.iconsize18,
+              )),
+          GetBuilder<ApiCartController>(
+              builder: (apiCartController) => GestureDetector(
+                    onTap: () => apiCartController.amountqty!.value > 0
+                        ? Get.toNamed(RouteHelper.goToCart())
+                        : () => null,
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: Dimensions.width25 + 20,
+                          height: Dimensions.height10 * 6,
+                          child: Icon(
+                            Icons.shopping_cart,
+                            size: Dimensions.iconsize18,
+                            color: tWhiteColor,
+                          ),
+                        ),
+                        Positioned(
+                          right: Dimensions.width5,
+                          top: Dimensions.height10,
+                          child: Container(
+                              child: apiCartController.amountqty!.value > 0
+                                  ? Container(
+                                      width: Dimensions.width15,
+                                      height: Dimensions.height15,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.red[300],
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black12,
+                                            spreadRadius: 3,
+                                            blurRadius: 7,
+                                            offset: Offset(4,
+                                                3), // changes position of shadow
+                                          ),
+                                        ],
+                                      ),
+                                      child: Center(
+                                          child: Text(
+                                        apiCartController.amountqty!.value
+                                            .toString(),
+                                        style: TextStyle(
+                                            fontSize: Dimensions.font10,
+                                            color: tWhiteColor),
+                                        textScaleFactor: 1,
+                                      )),
+                                    )
+                                  : Container()),
+                        ),
+                      ],
                     ),
-                    Positioned(
-                      right: Dimensions.width5,
-                      top: Dimensions.height10,
-                      child: Container(
-                        child: apiCartController.amountqty!.value> 0
-                            ? Container(
-                                width: Dimensions.width15,
-                                height: Dimensions.height15,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.red[300],
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black12,
-                                      spreadRadius: 3,
-                                      blurRadius: 7,
-                                      offset: Offset(4, 3), // changes position of shadow
-                                    ),
-                                  ],
-                                ),
-                                child: Center(
-                                    child: Text(
-                                  apiCartController.amountqty!.value.toString(),
-                                  style: TextStyle(fontSize: Dimensions.font10,color: tWhiteColor),
-                                  textScaleFactor: 1,
-                                )),
-                              )
-                            : Container()
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            )
+                  ))
         ],
       ),
       drawer: SafeArea(
@@ -244,16 +351,16 @@ class _HomeScreenState extends State<HomeScreen> {
           // child: ListView(
           //   padding: EdgeInsets.zero,
           //   children: [
-          //     Obx(() => 
-                // UserAccountsDrawerHeader(
-                //   decoration: BoxDecoration(color: tDarkColor,),
-                //   accountName: Text(productController.userName.value), 
-                //   accountEmail: Text(productController.userPhone.value),
-                  // currentAccountPicture: CircleAvatar(backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/68/Joe_Biden_presidential_portrait.jpg"),),
-        
-                // ),
-              // ),
-              
+          //     Obx(() =>
+          // UserAccountsDrawerHeader(
+          //   decoration: BoxDecoration(color: tDarkColor,),
+          //   accountName: Text(productController.userName.value),
+          //   accountEmail: Text(productController.userPhone.value),
+          // currentAccountPicture: CircleAvatar(backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/68/Joe_Biden_presidential_portrait.jpg"),),
+
+          // ),
+          // ),
+
           //     ListTile(
           //       onTap: () {
           //         // debugPrint(userProfileController.userName.value);
@@ -406,125 +513,171 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Container(
             width: double.maxFinite,
             height: double.maxFinite,
-            child: GetBuilder<ProductController>(builder: (productController) => 
-              Column(
-                children: [
-                  Stack(
-                    alignment: AlignmentDirectional.center,
-                    children: [
-                      Container(
-                        width: double.maxFinite,
-                        color: isDarkMode?Theme.of(context).scaffoldBackgroundColor:tDarkColor,
-                        height: MediaQuery.of(context).size.height*0.2,
-                      ),
-                      CircleAvatar(
-                        radius: Dimensions.radius30+23,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          onBackgroundImageError: (exception, stackTrace) {
-                            Image.asset(portraitHolder);
-                          },
-                          backgroundImage: AssetImage(portraitHolder),
-                          foregroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/68/Joe_Biden_presidential_portrait.jpg"),
-                          radius: Dimensions.radius30+20,
-                        ),
-                      )
-                    ]
-                  ),
-                  SizedBox(height: Dimensions.height10),
-                  Container(
-                    width: double.maxFinite,
-                    padding: EdgeInsets.only(top: Dimensions.height10,left: Dimensions.width20,right: Dimensions.width20),
-                    // height: ,
-                    child: Text(
-                      "${productController.userName.value}",
-                      style: TextStyle(fontSize: Dimensions.font20,fontWeight: FontWeight.bold,color: isDarkMode?tWhiteColor:tDarkColor),
-                      textAlign: TextAlign.center,
-                      textScaleFactor: 1,
-                    ),
-                  ),
-                  SizedBox(height: Dimensions.height10,),
-                  Container(
-                    width: double.maxFinite,
-                    padding: EdgeInsets.only(top: Dimensions.height10,left: Dimensions.width20,right: Dimensions.width20),
-                    // height: 50,
-                    child: RichText(
-                      text: TextSpan(
-                        children:[
-                          TextSpan(text: "Phone:    ",style: TextStyle(fontSize: Dimensions.font18,fontWeight: FontWeight.bold, color: isDarkMode?tWhiteColor:tDarkColor)),
-                          TextSpan(text: productController.userPhone.value,style: TextStyle(fontSize: Dimensions.font18,color: isDarkMode?tWhiteColor:Colors.blue))
-                        ] 
-                      ),
-                    )
-                  ),
-                  SizedBox(height: Dimensions.height10,),
-                  Container(
-                    width: double.maxFinite,
-                    padding: EdgeInsets.only(top: Dimensions.height10,left: Dimensions.width20,right: Dimensions.width20),
-                    height: Dimensions.height50,
-                    child: RichText(
-                      text: TextSpan(
-                        children:[
-                          TextSpan(text: "Date of Birth:    ",style: TextStyle(fontSize: Dimensions.font18,fontWeight: FontWeight.bold,color: isDarkMode?tWhiteColor:tDarkColor)),
-                          TextSpan(text: productController.userDob.value,style: TextStyle(fontSize: Dimensions.font18,color: isDarkMode?tWhiteColor:Colors.blue))
-                        ]
-                      ),
-                    )
-                  ),
-                  SizedBox(height: Dimensions.height50-10,),
-                  Container(
-                    width: double.maxFinite,
-                    padding: EdgeInsets.symmetric(horizontal: Dimensions.width25+5),
-                    child: GestureDetector(
-                      onTap: () async{
-                        await AuthenticationRepository.instance.auth.signOut();
-                        await loginController.signOut();
-                      },
-                      child: Container(
-                        height: Dimensions.height50,
-                        decoration: BoxDecoration(
-                          color: Colors.redAccent,
-                          borderRadius: BorderRadius.circular(Dimensions.radius15),
-                          boxShadow: [
-                            BoxShadow(
-                              color: isDarkMode==false?Colors.grey.withOpacity(0.5):Colors.black12,
-                              spreadRadius: 3,
-                              blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        child: Obx(() => 
-                        Center(
-                          child: loginController.isLogoutLoading.value==false
-                          ?
-                          Text(
-                            "Log out",
+            child: GetBuilder<ProductController>(
+                builder: (productController) => Column(
+                      children: [
+                        Stack(
+                            alignment: AlignmentDirectional.center,
+                            children: [
+                              Container(
+                                width: double.maxFinite,
+                                color: isDarkMode
+                                    ? Theme.of(context).scaffoldBackgroundColor
+                                    : tDarkColor,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.2,
+                              ),
+                              CircleAvatar(
+                                radius: Dimensions.radius30 + 23,
+                                backgroundColor: Colors.white,
+                                child: CircleAvatar(
+                                  onBackgroundImageError:
+                                      (exception, stackTrace) {
+                                    Image.asset(portraitHolder);
+                                  },
+                                  backgroundImage: AssetImage(portraitHolder),
+                                  foregroundImage: NetworkImage(
+                                      "https://upload.wikimedia.org/wikipedia/commons/6/68/Joe_Biden_presidential_portrait.jpg"),
+                                  radius: Dimensions.radius30 + 20,
+                                ),
+                              )
+                            ]),
+                        SizedBox(height: Dimensions.height10),
+                        Container(
+                          width: double.maxFinite,
+                          padding: EdgeInsets.only(
+                              top: Dimensions.height10,
+                              left: Dimensions.width20,
+                              right: Dimensions.width20),
+                          // height: ,
+                          child: Text(
+                            "${productController.userName.value}",
                             style: TextStyle(
-                              fontSize: Dimensions.font20,fontWeight: FontWeight.bold,color: Colors.white),
+                                fontSize: Dimensions.font20,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? tWhiteColor : tDarkColor),
+                            textAlign: TextAlign.center,
                             textScaleFactor: 1,
-                          )
-                          :
-                          ButtonLoadingWidget()
-                        )
-                      ),
-                    ),
-                  ))
-                ],
-              )
-            )
-            ,
+                          ),
+                        ),
+                        SizedBox(
+                          height: Dimensions.height10,
+                        ),
+                        Container(
+                            width: double.maxFinite,
+                            padding: EdgeInsets.only(
+                                top: Dimensions.height10,
+                                left: Dimensions.width20,
+                                right: Dimensions.width20),
+                            // height: 50,
+                            child: RichText(
+                              text: TextSpan(children: [
+                                TextSpan(
+                                    text: "Phone:    ",
+                                    style: TextStyle(
+                                        fontSize: Dimensions.font18,
+                                        fontWeight: FontWeight.bold,
+                                        color: isDarkMode
+                                            ? tWhiteColor
+                                            : tDarkColor)),
+                                TextSpan(
+                                    text: productController.userPhone.value,
+                                    style: TextStyle(
+                                        fontSize: Dimensions.font18,
+                                        color: isDarkMode
+                                            ? tWhiteColor
+                                            : Colors.blue))
+                              ]),
+                            )),
+                        SizedBox(
+                          height: Dimensions.height10,
+                        ),
+                        Container(
+                            width: double.maxFinite,
+                            padding: EdgeInsets.only(
+                                top: Dimensions.height10,
+                                left: Dimensions.width20,
+                                right: Dimensions.width20),
+                            height: Dimensions.height50,
+                            child: RichText(
+                              text: TextSpan(children: [
+                                TextSpan(
+                                    text: "Date of Birth:    ",
+                                    style: TextStyle(
+                                        fontSize: Dimensions.font18,
+                                        fontWeight: FontWeight.bold,
+                                        color: isDarkMode
+                                            ? tWhiteColor
+                                            : tDarkColor)),
+                                TextSpan(
+                                    text: productController.userDob.value,
+                                    style: TextStyle(
+                                        fontSize: Dimensions.font18,
+                                        color: isDarkMode
+                                            ? tWhiteColor
+                                            : Colors.blue))
+                              ]),
+                            )),
+                        SizedBox(
+                          height: Dimensions.height50 - 10,
+                        ),
+                        Container(
+                            width: double.maxFinite,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: Dimensions.width25 + 5),
+                            child: GestureDetector(
+                              onTap: () async {
+                                await AuthenticationRepository.instance.auth
+                                    .signOut();
+                                await loginController.signOut();
+                              },
+                              child: Container(
+                                height: Dimensions.height50,
+                                decoration: BoxDecoration(
+                                  color: Colors.redAccent,
+                                  borderRadius: BorderRadius.circular(
+                                      Dimensions.radius15),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: isDarkMode == false
+                                          ? Colors.grey.withOpacity(0.5)
+                                          : Colors.black12,
+                                      spreadRadius: 3,
+                                      blurRadius: 7,
+                                      offset: Offset(
+                                          0, 3), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: Obx(() => Center(
+                                    child:
+                                        loginController.isLogoutLoading.value ==
+                                                false
+                                            ? Text(
+                                                "Log out",
+                                                style: TextStyle(
+                                                    fontSize: Dimensions.font20,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white),
+                                                textScaleFactor: 1,
+                                              )
+                                            : ButtonLoadingWidget())),
+                              ),
+                            ))
+                      ],
+                    )),
           ),
         ),
       ),
-
       body: IndexedStack(
         index: _selectedIndex,
         children: pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed, // Fixed
-          backgroundColor: isDarkMode?Theme.of(context).scaffoldBackgroundColor:tDarkColor, // <-- This works for fixed
+          backgroundColor: isDarkMode
+              ? Theme.of(context).scaffoldBackgroundColor
+              : tDarkColor, // <-- This works for fixed
           selectedItemColor: tWhiteColor,
           unselectedItemColor: Colors.grey,
           showSelectedLabels: true,
@@ -545,51 +698,47 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.person_2_rounded), label: "Account"),
           ]),
-      
-      floatingActionButton: _selectedIndex >0?Container():
-      Container(
-        margin: EdgeInsets.only(bottom: Dimensions.height10*3),
-        child: SpeedDial(
-          backgroundColor: isDarkMode?Colors.grey[300]:tSecondaryColor,
-          animatedIcon: AnimatedIcons.menu_close,
-          spacing: Dimensions.height4+1,
-          children: [
-            SpeedDialChild(
-              child: Icon(Icons.phone),
-              label: 'Phone',
-              onTap: (){
-                String phoneLink = 'tel://0967087889';
-                launch(phoneLink);
-              }
+      floatingActionButton: _selectedIndex > 0
+          ? Container()
+          : Container(
+              margin: EdgeInsets.only(bottom: Dimensions.height10 * 3),
+              child: SpeedDial(
+                backgroundColor:
+                    isDarkMode ? Colors.grey[300] : tSecondaryColor,
+                animatedIcon: AnimatedIcons.menu_close,
+                spacing: Dimensions.height4 + 1,
+                children: [
+                  SpeedDialChild(
+                      child: Icon(Icons.phone),
+                      label: 'Phone',
+                      onTap: () {
+                        String phoneLink = 'tel://0967087889';
+                        launch(phoneLink);
+                      }),
+                  SpeedDialChild(
+                      child: Icon(Icons.telegram),
+                      label: 'Telegram',
+                      onTap: () {
+                        String telegramLink = 'https://t.me/vathanax';
+                        launch(telegramLink);
+                      }),
+                  SpeedDialChild(
+                      child: new Icon(MdiIcons.facebookMessenger),
+                      label: 'Messenger',
+                      onTap: () {
+                        String messengerLink = 'https://m.me/boymini.noheart';
+                        launch(messengerLink);
+                      }),
+                  SpeedDialChild(
+                      child: new Icon(MdiIcons.whatsapp),
+                      label: 'Whats App',
+                      onTap: () {
+                        String whatsappLink = 'https://wa.me/qr/SRBZQNCSJ7RDF1';
+                        launch(whatsappLink);
+                      })
+                ],
+              ),
             ),
-            SpeedDialChild(
-              child: Icon(Icons.telegram),
-              label: 'Telegram',
-              onTap: (){
-                String telegramLink = 'https://t.me/vathanax';
-                launch(telegramLink);
-              }
-            ),
-            SpeedDialChild(
-              child: new Icon(MdiIcons.facebookMessenger),
-              label: 'Messenger',
-              onTap: (){
-                String messengerLink = 'https://m.me/boymini.noheart';
-                launch(messengerLink);
-              }
-            ),
-            
-            SpeedDialChild(
-              child: new Icon(MdiIcons.whatsapp),
-              label: 'Whats App',
-              onTap: (){
-                String whatsappLink= 'https://wa.me/qr/SRBZQNCSJ7RDF1';
-                launch(whatsappLink);
-              }
-            )
-          ],
-             ),
-      ),
     );
   }
 }

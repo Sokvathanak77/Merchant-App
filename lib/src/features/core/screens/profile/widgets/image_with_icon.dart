@@ -28,7 +28,7 @@ class ImageWithIcon extends StatelessWidget {
             width: 35,
             height: 35,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: tPrimaryColor),
-            child: const Icon(LineAwesomeIcons.alternate_pencil, color: Colors.black, size: 20),
+            child: const Icon(LineAwesomeIcons.pencil_alt_solid, color: Colors.black, size: 20),
           ),
         ),
       ],

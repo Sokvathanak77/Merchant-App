@@ -39,12 +39,12 @@ class ProfileFormScreen extends StatelessWidget {
           const SizedBox(height: tFormHeight - 20),
           TextFormField(
             controller: email,
-            decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(LineAwesomeIcons.envelope_1)),
+            decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(LineAwesomeIcons.envelope)),
           ),
           const SizedBox(height: tFormHeight - 20),
           TextFormField(
             controller: phoneNo,
-            decoration: const InputDecoration(label: Text(tPhoneNo), prefixIcon: Icon(LineAwesomeIcons.phone)),
+            decoration: const InputDecoration(label: Text(tPhoneNo), prefixIcon: Icon(LineAwesomeIcons.phone_solid)),
           ),
           const SizedBox(height: tFormHeight - 20),
           TextFormField(

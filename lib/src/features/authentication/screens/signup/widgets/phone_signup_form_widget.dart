@@ -27,7 +27,7 @@ class PhoneSignupFormWidget extends StatelessWidget {
               initialCountryCode: 'KH',
               decoration: const InputDecoration(
                   label: Text(tPhoneNo,style: TextStyle(color: tDarkColor),),
-                  prefixIcon: Icon(LineAwesomeIcons.phone),
+                  prefixIcon: Icon(LineAwesomeIcons.phone_solid),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: tDarkColor),
                     borderRadius: BorderRadius.all(

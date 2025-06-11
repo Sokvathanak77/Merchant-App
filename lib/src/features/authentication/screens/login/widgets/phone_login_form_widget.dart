@@ -30,7 +30,7 @@ class PhoneLoginFormWidget extends StatelessWidget {
               initialCountryCode: 'KH',
               decoration: InputDecoration(
                 label: Text(tPhoneNo,style: TextStyle(color: Theme.of(context).hintColor,fontSize: Dimensions.font16),textScaleFactor: 1,),
-                prefixIcon: Icon(LineAwesomeIcons.phone),
+                prefixIcon: Icon(LineAwesomeIcons.phone_solid),
                 enabledBorder: OutlineInputBorder(
                   
                   borderSide: BorderSide(color: Theme.of(context).primaryColorLight,width: Dimensions.width3-1),
